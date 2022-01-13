@@ -1,0 +1,57 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+$_SESSION["id"] = $_POST["roll"];
+
+include"loginStudent.html";
+
+require('db.php');
+
+
+$selectUser = "select * from student where id=".$_POST["roll"].";";
+
+$result = mysqli_query($conn, $selectUser);
+
+if(!$result){
+	echo"<script>".
+	"document.getElementById(\"lname\").style=\"color: C03221;\";".
+	"document.getElementById(\"lpass\").style=\"color: C03221;\";".
+	"document.getElementById(\"roll\").style=\"background-color: C03221; color: #F1FFFA;\";".
+	"document.getElementById(\"pass\").style=\"background-color: C03221; color: #F1FFFA;\";".
+	"document.getElementById(\"lpass\").innerHTML=\"Check Password\";".
+	"document.getElementById(\"lname\").innerHTML=\"Check Roll Number\";".
+	"</script>";
+	exit();
+}
+
+$data = mysqli_fetch_assoc($result);
+
+$_SESSION["batch"] = $data["batch"];
+
+$_SESSION["name"] = $data["name"];
+
+if( $data["pass"] === $_POST["pass"] ){
+	
+	$t = "student\loadDynamic.php";
+
+	header("Location: ".$t);
+
+	exit();
+} 
+else{
+	echo"<script>".
+	"document.getElementById(\"lname\").style=\"color: C03221;\";".
+	"document.getElementById(\"lpass\").style=\"color: C03221;\";".
+	"document.getElementById(\"roll\").style=\"background-color: C03221; color: #F1FFFA;\";".
+	"document.getElementById(\"pass\").style=\"background-color: C03221; color: #F1FFFA;\";".
+	"document.getElementById(\"lpass\").innerHTML=\"Check Password\";".
+	"document.getElementById(\"lname\").innerHTML=\"Check Roll Number\";".
+	"</script>";
+	exit();
+}
+mysqli_close($conn);
+echo "FINISHED";
+?>

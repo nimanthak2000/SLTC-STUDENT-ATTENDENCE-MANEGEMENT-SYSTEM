@@ -1,0 +1,90 @@
+<html>
+<head>
+	<title>Student manegement system</title>  
+	<style>
+	
+	body {
+            background-image: url("img/i2.jpg");
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			height:100%;
+         }
+	h1 {
+		font-size: 5em; 
+		color:white;
+		-webkit-text-stroke: 1px red;
+	}
+	h2 {
+		font-size: 3.5em; 
+		color:Navy;
+		-webkit-text-stroke: 1px white;
+	}
+	
+
+	.column {
+	  float: left;
+	  width: 33%;
+	  padding: 0px;
+	}
+
+	/* Clearfix (clear floats) */
+	.row::after {
+	  content: "";
+	  clear: both;
+	  display: table;
+	}
+	
+</style>
+	<script type="text/javascript">
+        function playCancel(){
+            var a = document.getElementById("cancel");
+            a.play();
+        }
+        function playHover(){
+            var a = document.getElementById("hover");
+            a.play();
+        }
+        function playClick(){
+            var a = document.getElementById("click");
+            a.play();
+        }
+        window.onload = function(){
+        	playClick();
+        }
+    </script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body class = "home">
+	<audio id="click">
+        <source src="select.wav" type="audio/wav">
+    </audio>
+    <audio id="hover">
+        <source src="hover.wav" type="audio/wav">
+    </audio>
+    <audio id="cancel">
+        <source src="cancel.wav" type="audio/wav">
+    </audio>
+
+	
+	<h1><center>SLTC <br>STUDENT ATTENDENCE MANEGEMENT SYSTEM</center></h1>
+	
+	
+	<h2><center>Select Your Roll</center</h2>
+	
+	<br><br>
+	<div class="row">
+		<div class="column">
+			<a href="loginAdmin.html"> <img src=img/2.jpeg alt="As a Admin"  height='300'   width='300'></a>
+		</div>
+		<div class="column">
+			<a href="loginLecturer.html"> <img src=img/3.jpeg alt="As a Lecturer"  height='300'   width='300'></a>
+		</div>	
+		<div class="column">	
+			<a href="loginStudent.html"> <img src=img/4.jpeg alt="As a Student"  height='300'   width='300'></a>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
