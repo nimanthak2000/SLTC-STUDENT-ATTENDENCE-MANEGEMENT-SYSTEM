@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'SLTC-SAMS'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9640C3AFCB79446BB8F76B47C20C1321 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3FEB7D2233A14995853E8A0D868C6CCE }}
           package: .
